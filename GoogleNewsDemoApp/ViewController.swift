@@ -1,19 +1,27 @@
-//
-//  ViewController.swift
-//  GoogleNewsDemoApp
-//
-//  Created by Matt Bryant on 1/23/25.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
+    
+    lazy private var label: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Hello"
+        label.textColor = .white
+        return label
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        view.addSubview(label)
+        setupContraints()
     }
-
-
+    
+    private func setupContraints() {
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
 }
 
