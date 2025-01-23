@@ -86,10 +86,9 @@ class NewsCell: UICollectionViewCell {
     
     
     func configure(from dataSource: NewsCellModel) {
-        imageView.image = dataSource.image
+        imageView.loadImage(from: dataSource.imageURL)
         titleLabel.text = dataSource.title
-        //timeLabel.text  = dataSource.time // TODO: Read from model
-        timeLabel.text = "3 hrs ago"
+        timeLabel.text  = dataSource.time
         descriptionLabel.text = dataSource.description
         authorLabel.text = dataSource.author
     }

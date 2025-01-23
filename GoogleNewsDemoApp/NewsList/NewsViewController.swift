@@ -6,6 +6,16 @@ final class NewsViewController: UIViewController {
     private var layout: UICollectionViewFlowLayout!
     private var data: [NewsCellModel] = []
     private let widthOffset: CGFloat = 30
+    private var viewModel: NewsViewModel
+    
+    init(viewModel: NewsViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -13,7 +23,11 @@ final class NewsViewController: UIViewController {
         
         Task {
             do {
-                try await fetchData()
+                let headlines = try await viewModel.fetchTopHeadlines()
+                await MainActor.run {
+                    data.append(contentsOf: headlines)
+                    self.collectionView.reloadData()
+                }
             } catch {
                 print(error) // TODO: Handle error
             }
@@ -42,19 +56,6 @@ final class NewsViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
     }
-    
-    private func fetchData() async throws {
-        // TODO: connect to API and fetch real data
-        try await Task.sleep(for: .seconds(2))
-        data.append(contentsOf: Array(repeating: NewsCellModel(image: UIImage(systemName: "arrow.trianglehead.clockwise")!,
-                                                               title: "Trump To Take Virtual Centre Stage In Davos",
-                                                               description: "Donald Trump will star in an eagerly-anticipated online appearance at the World Economic Forum in Davos on Thursday, addressing global elites whose annual gabfest has been consumed by the US president's days-old second term.",
-                                                               author: "Ibtimes.com.au",
-                                                               time: "2025-01-23T13:53:35Z"), count: 50))
-        await MainActor.run {
-            self.collectionView.reloadData()
-        }
-    }
 }
 
 extension NewsViewController: UICollectionViewDataSource {
@@ -67,9 +68,6 @@ extension NewsViewController: UICollectionViewDataSource {
             fatalError("Unable to dequeue cell with identifier: \(NewsCell.identifier)")
         }
         cell.configure(from: data[indexPath.row])
-        // TODO: Remove me
-        cell.layer.borderColor = UIColor.blue.cgColor
-        cell.layer.borderWidth = 1
         return cell
     }
 }

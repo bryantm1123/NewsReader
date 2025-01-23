@@ -1,9 +1,9 @@
 import UIKit
 
 struct NewsCellModel {
-    let image: UIImage
+    let imageURL: URL?
     let title: String
     let description: String
     let author: String
-    let time: String
+    let time: String?
 }
