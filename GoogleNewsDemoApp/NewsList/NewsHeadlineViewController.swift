@@ -10,12 +10,6 @@ final class NewsHeadlineViewController: UIViewController {
         super.viewDidLoad()
         configureCollectionView()
         
-        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(observeOrientationChanged),
-                                               name: UIDevice.orientationDidChangeNotification,
-                                               object: nil)
-        
         Task {
             do {
                 try await fetchData()
@@ -31,8 +25,6 @@ final class NewsHeadlineViewController: UIViewController {
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = padding
         layout.minimumInteritemSpacing = padding
-        layout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
-        updateLayoutForOrientation()
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -59,31 +51,6 @@ final class NewsHeadlineViewController: UIViewController {
             self.collectionView.reloadData()
         }
     }
-    
-    @objc private func observeOrientationChanged() {
-        updateLayoutForOrientation()
-        collectionView.collectionViewLayout.invalidateLayout()
-    }
-    
-    private func updateLayoutForOrientation() {
-        let orientation = UIDevice.current.orientation
-        
-        if orientation.isPortrait {
-            // TODO: If item is every 7th, 1 item per row
-            // Portrait: 2 items per row
-            let itemWidth = (view.bounds.width - 30) / 2 // TODO: adjust sizing as needed
-            layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
-        } else if orientation.isLandscape {
-            // Landscape: 3 items per row
-            let itemWidth = (view.bounds.width - 40) / 3
-            layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
-        }
-    }
-    
-    deinit {
-        UIDevice.current.endGeneratingDeviceOrientationNotifications()
-        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
-    }
 }
 
 extension NewsHeadlineViewController: UICollectionViewDataSource {
@@ -104,6 +71,38 @@ extension NewsHeadlineViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("item at index \(indexPath.row) tapped")
         // TODO: transition to full story view
+    }
+}
+
+extension NewsHeadlineViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let orientation = UIDevice.current.orientation
+        
+        // TODO: adjust sizing, DRY up every 7th
+        if orientation.isLandscape {
+            // If item is first of every 7, 1 item per row
+            if indexPath.row == 0 || indexPath.row.isMultiple(of: 7) {
+                let itemWidth = (view.bounds.width - 30)
+                return CGSize(width: itemWidth, height: itemWidth)
+            } else {
+                // Landscape: 3 items per row
+                let itemWidth = (view.bounds.width - 40) / 3
+                return CGSize(width: itemWidth, height: itemWidth)
+            }
+        }
+        // If item is first of every 7, 1 item per row
+        if indexPath.row == 0 || indexPath.row.isMultiple(of: 7) {
+            let itemWidth = (view.bounds.width - 30)
+            return CGSize(width: itemWidth, height: itemWidth)
+        }
+        // Portrait: 2 items per row
+        let itemWidth = (view.bounds.width - 30) / 2
+        return CGSize(width: itemWidth, height: itemWidth)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: any UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        collectionView.collectionViewLayout.invalidateLayout()
     }
 }
 
