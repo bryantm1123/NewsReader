@@ -7,6 +7,7 @@ final class NewsViewController: UIViewController {
     private var data: [NewsCellModel] = []
     private let widthOffset: CGFloat = 30
     private var viewModel: NewsViewModel
+    private var isLoading = false
     
     init(viewModel: NewsViewModel) {
         self.viewModel = viewModel
@@ -20,18 +21,7 @@ final class NewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
-        
-        Task {
-            do {
-                let headlines = try await viewModel.fetchTopHeadlines()
-                await MainActor.run {
-                    data.append(contentsOf: headlines)
-                    self.collectionView.reloadData()
-                }
-            } catch {
-                print(error) // TODO: Handle error
-            }
-        }
+        loadDataIntoCollectionView()
     }
     
     private func configureCollectionView() {
@@ -56,6 +46,23 @@ final class NewsViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
     }
+    
+    private func loadDataIntoCollectionView() {
+        guard !isLoading else { return }
+        isLoading = true
+        Task {
+            do {
+                let headlines = try await viewModel.fetchTopHeadlines()
+                await MainActor.run {
+                    data.append(contentsOf: headlines)
+                    self.collectionView.reloadData()
+                    isLoading = false
+                }
+            } catch {
+                print(error) // TODO: Handle error
+            }
+        }
+    }
 }
 
 extension NewsViewController: UICollectionViewDataSource {
@@ -69,6 +76,14 @@ extension NewsViewController: UICollectionViewDataSource {
         }
         cell.configure(from: data[indexPath.row])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard !data.isEmpty else { return }
+        let lastElement = data.count - 1
+        if !isLoading && indexPath.row == lastElement {
+            loadDataIntoCollectionView()
+        }
     }
 }
 

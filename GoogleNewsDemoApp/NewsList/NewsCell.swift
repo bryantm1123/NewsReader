@@ -23,7 +23,7 @@ class NewsCell: UICollectionViewCell {
     }
     
     private func setupImage() {
-        imageView = UIImageView(image: UIImage(systemName: "arrow.trianglehead.clockwise")!)
+        imageView = UIImageView(image: UIImage(systemName: "questionmark.circle")!)
         addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -32,7 +32,7 @@ class NewsCell: UICollectionViewCell {
             imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             imageView.bottomAnchor.constraint(equalTo: self.centerYAnchor)
         ])
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleToFill
     }
     
     private func setupTitleLabel() {

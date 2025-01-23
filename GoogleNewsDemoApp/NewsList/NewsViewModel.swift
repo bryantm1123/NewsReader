@@ -21,7 +21,7 @@ class NewsViewModel {
             NewsCellModel(imageURL: URL(string: $0.urlToImage ?? ""),
                           title: $0.title ?? "",
                           description: $0.description ?? "",
-                          author: $0.source.name,
+                          author: "From: \($0.source.name)",
                           time: convertToDisplayString($0.publishedAt ?? ""))
         }
     }
