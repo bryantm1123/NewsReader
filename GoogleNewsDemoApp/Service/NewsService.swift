@@ -34,7 +34,7 @@ final class NewsService: NewsServceProtocol {
         var request = URLRequest(url: url)
         request.addValue(apiKey, forHTTPHeaderField: "X-Api-Key")
         
-        let (data, response) = try await session.data(for: request)
+        let (data, _) = try await session.data(for: request)
         let decoded = try JSONDecoder().decode(TopHeadlinesAPIModel.self, from: data)
         
         guard decoded.status == TopHeadlinesStatusCodes.ok.rawValue,

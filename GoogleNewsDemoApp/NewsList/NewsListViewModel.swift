@@ -1,26 +1,27 @@
 import Foundation
 
-class NewsViewModel {
+class NewsListViewModel {
     private var newsService: NewsServceProtocol
     private let pageSize = 21
-    private var page = 1
+    private var page = 0
     private let dateFormatter: DateFormatter = DateFormatter()
     
     init(newsService: NewsServceProtocol) {
         self.newsService = newsService
     }
     
-    func fetchTopHeadlines() async throws -> [NewsCellModel] {
+    func fetchTopHeadlines() async throws -> [ArticleModel] {
         let topHeadlines = try await newsService.fetchTopHeadlines(page: page, pageSize: pageSize)
         page += 1
         return populateCellModels(from: topHeadlines)
     }
     
-    private func populateCellModels(from articles: [Article]) -> [NewsCellModel] {
+    private func populateCellModels(from articles: [Article]) -> [ArticleModel] {
         articles.map {
-            NewsCellModel(imageURL: URL(string: $0.urlToImage ?? ""),
+            ArticleModel(imageURL: URL(string: $0.urlToImage ?? ""),
                           title: $0.title ?? "",
                           description: $0.description ?? "",
+                          content: $0.content ?? "",
                           author: "From: \($0.source.name)",
                           time: convertToDisplayString($0.publishedAt ?? ""))
         }

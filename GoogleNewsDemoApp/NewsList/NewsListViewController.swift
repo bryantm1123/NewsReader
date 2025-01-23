@@ -1,15 +1,15 @@
 import UIKit
 
-final class NewsViewController: UIViewController {
+final class NewsListViewController: UIViewController {
     
     private var collectionView: UICollectionView!
     private var layout: UICollectionViewFlowLayout!
-    private var data: [NewsCellModel] = []
+    private var data: [ArticleModel] = []
     private let widthOffset: CGFloat = 30
-    private var viewModel: NewsViewModel
+    private var viewModel: NewsListViewModel
     private var isLoading = false
     
-    init(viewModel: NewsViewModel) {
+    init(viewModel: NewsListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -65,7 +65,7 @@ final class NewsViewController: UIViewController {
     }
 }
 
-extension NewsViewController: UICollectionViewDataSource {
+extension NewsListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         data.count
     }
@@ -87,14 +87,15 @@ extension NewsViewController: UICollectionViewDataSource {
     }
 }
 
-extension NewsViewController: UICollectionViewDelegate {
+extension NewsListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("item at index \(indexPath.row) tapped")
-        // TODO: transition to full story view
+        let article = data[indexPath.row]
+        let articleViewController = ArticleViewController(article: article)
+        navigationController?.pushViewController(articleViewController, animated: true)
     }
 }
 
-extension NewsViewController: UICollectionViewDelegateFlowLayout {
+extension NewsListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // Took some inspiration from here: https://stackoverflow.com/a/37152739
         let orientation = UIDevice.current.orientation
@@ -118,11 +119,11 @@ extension NewsViewController: UICollectionViewDelegateFlowLayout {
     }
     
     private func sizeForFirstRowLandscape(_ itemWidth: CGFloat) -> CGSize {
-        CGSize(width: itemWidth, height: itemWidth / 3)
+        CGSize(width: itemWidth - widthOffset, height: itemWidth / 3)
     }
     
     private func sizeForFirstRowPortrait(_ itemWidth: CGFloat) -> CGSize {
-        CGSize(width: itemWidth, height: 0.75 * itemWidth)
+        CGSize(width: itemWidth - widthOffset, height: 0.75 * itemWidth)
     }
     
     private func sizeForPortrait(_ itemWidth: CGFloat) -> CGSize {

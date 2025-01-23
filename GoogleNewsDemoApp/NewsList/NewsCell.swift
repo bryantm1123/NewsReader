@@ -1,12 +1,17 @@
 import UIKit
 
 class NewsCell: UICollectionViewCell {
-    private var imageView: UIImageView!
-    private var titleLabel: UILabel!
-    private var timeLabel: UILabel!
-    private var descriptionLabel: UILabel!
-    private var authorLabel: UILabel!
+    private var imageView = UIImageView()
+    private var titleLabel = UILabel()
+    private var timeLabel = UILabel()
+    private var descriptionLabel = UILabel()
+    private var authorLabel = UILabel()
     public static let identifier = "NewsCell"
+    private let imageViewHeight: CGFloat = 100
+    private let padding: CGFloat = 10
+    private let smallPadding: CGFloat = 3
+    private let titleFontSize: CGFloat = 12
+    private let labelFontSize: CGFloat = 10
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -28,54 +33,53 @@ class NewsCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: self.topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
+            imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
             imageView.bottomAnchor.constraint(equalTo: self.centerYAnchor)
         ])
         imageView.contentMode = .scaleToFill
     }
     
     private func setupTitleLabel() {
-        titleLabel = UILabel()
-        titleLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
+        titleLabel.font = UIFont.systemFont(ofSize: titleFontSize, weight: .bold)
+        titleLabel.numberOfLines = 2
+        titleLabel.lineBreakMode = .byWordWrapping
     }
     
     private func setupTimeLabel() {
-        timeLabel = UILabel()
-        timeLabel.font = UIFont.systemFont(ofSize: 10, weight: .medium)
+        timeLabel.font = UIFont.systemFont(ofSize: labelFontSize, weight: .medium)
     }
     
     private func setupDescriptionLabel() {
-        descriptionLabel = UILabel()
-        descriptionLabel.font = UIFont.systemFont(ofSize: 10, weight: .medium)
+        descriptionLabel.font = UIFont.systemFont(ofSize: labelFontSize, weight: .medium)
         descriptionLabel.numberOfLines = 3
     }
     
     private func setupAuthorLabel() {
-        authorLabel = UILabel()
-        authorLabel.font = UIFont.systemFont(ofSize: 10, weight: .medium)
+        authorLabel.font = UIFont.systemFont(ofSize: labelFontSize, weight: .medium)
     }
     
     private func setupContentStackView() {
         let stackView = UIStackView(arrangedSubviews: [
-            titleTimeLabelStack,
+            titleLabel,
             descriptionLabel,
-            authorLabel
+            authorTimeLabelStack
         ])
         stackView.axis = .vertical
+        stackView.spacing = smallPadding
         addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: imageView.bottomAnchor),
+            stackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: smallPadding),
             stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
+            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding)
         ])
     }
     
-    private lazy var titleTimeLabelStack: UIStackView = {
+    private lazy var authorTimeLabelStack: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
-            titleLabel,
+            authorLabel,
             UIView(),
             timeLabel
         ])
@@ -85,7 +89,7 @@ class NewsCell: UICollectionViewCell {
     }()
     
     
-    func configure(from dataSource: NewsCellModel) {
+    func configure(from dataSource: ArticleModel) {
         imageView.loadImage(from: dataSource.imageURL)
         titleLabel.text = dataSource.title
         timeLabel.text  = dataSource.time
