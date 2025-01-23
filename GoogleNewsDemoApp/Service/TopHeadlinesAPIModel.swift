@@ -5,7 +5,7 @@ struct TopHeadlinesAPIModel: Decodable {
     let articles: [Article]?
 }
 
-struct Article: Decodable {
+public struct Article: Decodable {
     let source: Source
     let title: String?
     let description: String?

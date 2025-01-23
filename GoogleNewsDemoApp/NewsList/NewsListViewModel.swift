@@ -1,22 +1,22 @@
 import Foundation
 
 class NewsListViewModel {
-    private var newsService: NewsServceProtocol
+    private var newsService: NewsServiceProtocol
     private let pageSize = 21
     private var page = 0
-    private let dateFormatter: DateFormatter = DateFormatter()
+    private let dateFormatter = ISO8601DateFormatter()
     
-    init(newsService: NewsServceProtocol) {
+    init(newsService: NewsServiceProtocol) {
         self.newsService = newsService
     }
     
     func fetchTopHeadlines() async throws -> [ArticleModel] {
         let topHeadlines = try await newsService.fetchTopHeadlines(page: page, pageSize: pageSize)
         page += 1
-        return populateCellModels(from: topHeadlines)
+        return populateArticleModels(from: topHeadlines)
     }
     
-    private func populateCellModels(from articles: [Article]) -> [ArticleModel] {
+    private func populateArticleModels(from articles: [Article]) -> [ArticleModel] {
         articles.map {
             ArticleModel(imageURL: URL(string: $0.urlToImage ?? ""),
                           title: $0.title ?? "",
@@ -28,12 +28,11 @@ class NewsListViewModel {
     }
     
     private func convertToDisplayString(_ publishedAt: String) -> String? {
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        dateFormatter.locale = Locale.current
+        dateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
         dateFormatter.timeZone = TimeZone.current
         
         guard let date = dateFormatter.date(from: publishedAt) else {
-            // Could have a log statement here
+            // Improvement: Could have a log statement here
             return nil
         }
         let calendar = Calendar.current

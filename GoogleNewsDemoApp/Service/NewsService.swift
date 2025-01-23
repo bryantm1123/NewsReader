@@ -1,10 +1,10 @@
 import Foundation
 
-protocol NewsServceProtocol {
+public protocol NewsServiceProtocol {
     func fetchTopHeadlines(page: Int, pageSize: Int) async throws -> [Article]
 }
 
-final class NewsService: NewsServceProtocol {
+final class NewsService: NewsServiceProtocol {
     
     private var session: URLSession
     private let baseURL = "https://newsapi.org"
