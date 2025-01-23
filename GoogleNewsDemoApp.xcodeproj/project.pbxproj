@@ -1,0 +1,574 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		928B06822D425A7600410AD7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928B06632D425A7100410AD7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 928B066A2D425A7100410AD7;
+			remoteInfo = GoogleNewsDemoApp;
+		};
+		928B068C2D425A7600410AD7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 928B06632D425A7100410AD7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 928B066A2D425A7100410AD7;
+			remoteInfo = GoogleNewsDemoApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		928B066B2D425A7100410AD7 /* GoogleNewsDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleNewsDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		928B06812D425A7600410AD7 /* GoogleNewsDemoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoogleNewsDemoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		928B068B2D425A7600410AD7 /* GoogleNewsDemoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoogleNewsDemoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		928B06932D425A7600410AD7 /* Exceptions for "GoogleNewsDemoApp" folder in "GoogleNewsDemoApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 928B066A2D425A7100410AD7 /* GoogleNewsDemoApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		928B066D2D425A7100410AD7 /* GoogleNewsDemoApp */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				928B06932D425A7600410AD7 /* Exceptions for "GoogleNewsDemoApp" folder in "GoogleNewsDemoApp" target */,
+			);
+			path = GoogleNewsDemoApp;
+			sourceTree = "<group>";
+		};
+		928B06842D425A7600410AD7 /* GoogleNewsDemoAppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = GoogleNewsDemoAppTests;
+			sourceTree = "<group>";
+		};
+		928B068E2D425A7600410AD7 /* GoogleNewsDemoAppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = GoogleNewsDemoAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		928B06682D425A7100410AD7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		928B067E2D425A7600410AD7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		928B06882D425A7600410AD7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		928B06622D425A7100410AD7 = {
+			isa = PBXGroup;
+			children = (
+				928B066D2D425A7100410AD7 /* GoogleNewsDemoApp */,
+				928B06842D425A7600410AD7 /* GoogleNewsDemoAppTests */,
+				928B068E2D425A7600410AD7 /* GoogleNewsDemoAppUITests */,
+				928B066C2D425A7100410AD7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		928B066C2D425A7100410AD7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				928B066B2D425A7100410AD7 /* GoogleNewsDemoApp.app */,
+				928B06812D425A7600410AD7 /* GoogleNewsDemoAppTests.xctest */,
+				928B068B2D425A7600410AD7 /* GoogleNewsDemoAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		928B066A2D425A7100410AD7 /* GoogleNewsDemoApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 928B06942D425A7600410AD7 /* Build configuration list for PBXNativeTarget "GoogleNewsDemoApp" */;
+			buildPhases = (
+				928B06672D425A7100410AD7 /* Sources */,
+				928B06682D425A7100410AD7 /* Frameworks */,
+				928B06692D425A7100410AD7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				928B066D2D425A7100410AD7 /* GoogleNewsDemoApp */,
+			);
+			name = GoogleNewsDemoApp;
+			packageProductDependencies = (
+			);
+			productName = GoogleNewsDemoApp;
+			productReference = 928B066B2D425A7100410AD7 /* GoogleNewsDemoApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		928B06802D425A7600410AD7 /* GoogleNewsDemoAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 928B06992D425A7600410AD7 /* Build configuration list for PBXNativeTarget "GoogleNewsDemoAppTests" */;
+			buildPhases = (
+				928B067D2D425A7600410AD7 /* Sources */,
+				928B067E2D425A7600410AD7 /* Frameworks */,
+				928B067F2D425A7600410AD7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				928B06832D425A7600410AD7 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				928B06842D425A7600410AD7 /* GoogleNewsDemoAppTests */,
+			);
+			name = GoogleNewsDemoAppTests;
+			packageProductDependencies = (
+			);
+			productName = GoogleNewsDemoAppTests;
+			productReference = 928B06812D425A7600410AD7 /* GoogleNewsDemoAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		928B068A2D425A7600410AD7 /* GoogleNewsDemoAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 928B069C2D425A7600410AD7 /* Build configuration list for PBXNativeTarget "GoogleNewsDemoAppUITests" */;
+			buildPhases = (
+				928B06872D425A7600410AD7 /* Sources */,
+				928B06882D425A7600410AD7 /* Frameworks */,
+				928B06892D425A7600410AD7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				928B068D2D425A7600410AD7 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				928B068E2D425A7600410AD7 /* GoogleNewsDemoAppUITests */,
+			);
+			name = GoogleNewsDemoAppUITests;
+			packageProductDependencies = (
+			);
+			productName = GoogleNewsDemoAppUITests;
+			productReference = 928B068B2D425A7600410AD7 /* GoogleNewsDemoAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		928B06632D425A7100410AD7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					928B066A2D425A7100410AD7 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					928B06802D425A7600410AD7 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 928B066A2D425A7100410AD7;
+					};
+					928B068A2D425A7600410AD7 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 928B066A2D425A7100410AD7;
+					};
+				};
+			};
+			buildConfigurationList = 928B06662D425A7100410AD7 /* Build configuration list for PBXProject "GoogleNewsDemoApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 928B06622D425A7100410AD7;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 928B066C2D425A7100410AD7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				928B066A2D425A7100410AD7 /* GoogleNewsDemoApp */,
+				928B06802D425A7600410AD7 /* GoogleNewsDemoAppTests */,
+				928B068A2D425A7600410AD7 /* GoogleNewsDemoAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		928B06692D425A7100410AD7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		928B067F2D425A7600410AD7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		928B06892D425A7600410AD7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		928B06672D425A7100410AD7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		928B067D2D425A7600410AD7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		928B06872D425A7600410AD7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		928B06832D425A7600410AD7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 928B066A2D425A7100410AD7 /* GoogleNewsDemoApp */;
+			targetProxy = 928B06822D425A7600410AD7 /* PBXContainerItemProxy */;
+		};
+		928B068D2D425A7600410AD7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 928B066A2D425A7100410AD7 /* GoogleNewsDemoApp */;
+			targetProxy = 928B068C2D425A7600410AD7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		928B06952D425A7600410AD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BV7A9X77F6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoogleNewsDemoApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.strongbeard.GoogleNewsDemoApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		928B06962D425A7600410AD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BV7A9X77F6;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoogleNewsDemoApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.strongbeard.GoogleNewsDemoApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		928B06972D425A7600410AD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		928B06982D425A7600410AD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		928B069A2D425A7600410AD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BV7A9X77F6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.strongbeard.GoogleNewsDemoAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoogleNewsDemoApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GoogleNewsDemoApp";
+			};
+			name = Debug;
+		};
+		928B069B2D425A7600410AD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BV7A9X77F6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.strongbeard.GoogleNewsDemoAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoogleNewsDemoApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GoogleNewsDemoApp";
+			};
+			name = Release;
+		};
+		928B069D2D425A7600410AD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BV7A9X77F6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.strongbeard.GoogleNewsDemoAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GoogleNewsDemoApp;
+			};
+			name = Debug;
+		};
+		928B069E2D425A7600410AD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BV7A9X77F6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.strongbeard.GoogleNewsDemoAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GoogleNewsDemoApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		928B06662D425A7100410AD7 /* Build configuration list for PBXProject "GoogleNewsDemoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				928B06972D425A7600410AD7 /* Debug */,
+				928B06982D425A7600410AD7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		928B06942D425A7600410AD7 /* Build configuration list for PBXNativeTarget "GoogleNewsDemoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				928B06952D425A7600410AD7 /* Debug */,
+				928B06962D425A7600410AD7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		928B06992D425A7600410AD7 /* Build configuration list for PBXNativeTarget "GoogleNewsDemoAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				928B069A2D425A7600410AD7 /* Debug */,
+				928B069B2D425A7600410AD7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		928B069C2D425A7600410AD7 /* Build configuration list for PBXNativeTarget "GoogleNewsDemoAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				928B069D2D425A7600410AD7 /* Debug */,
+				928B069E2D425A7600410AD7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 928B06632D425A7100410AD7 /* Project object */;
+}
