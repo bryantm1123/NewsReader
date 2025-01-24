@@ -4,7 +4,7 @@ class NewsListViewModel {
     private var newsService: NewsServiceProtocol
     private let pageSize = 21
     private var page = 0
-    private let dateFormatter = ISO8601DateFormatter()
+    private let isoDateFormatter = ISO8601DateFormatter()
     
     init(newsService: NewsServiceProtocol) {
         self.newsService = newsService
@@ -28,16 +28,25 @@ class NewsListViewModel {
     }
     
     private func convertToDisplayString(_ publishedAt: String) -> String? {
-        dateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-        dateFormatter.timeZone = TimeZone.current
-        
-        guard let date = dateFormatter.date(from: publishedAt) else {
-            // Improvement: Could have a log statement here
-            return nil
-        }
+        guard let date = convertToDate(publishedAt) else { return nil }
         let calendar = Calendar.current
         let components = calendar.dateComponents([.hour], from: date, to: Date.now)
         let hours = components.hour
         return "\(hours ?? 0) hrs ago"
+    }
+    
+    private func convertToDate(_ dateString: String) -> Date? {
+        isoDateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        isoDateFormatter.timeZone = TimeZone.current
+        
+        if let date = isoDateFormatter.date(from: dateString) {
+            return date
+        }
+        
+        isoDateFormatter.formatOptions = [.withInternetDateTime]
+        if let date = isoDateFormatter.date(from: dateString) {
+            return date
+        }
+        return nil
     }
 }

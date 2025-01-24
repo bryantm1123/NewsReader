@@ -6,12 +6,17 @@ class NewsCell: UICollectionViewCell {
     private var timeLabel = UILabel()
     private var descriptionLabel = UILabel()
     private var authorLabel = UILabel()
+    private let placeHolderImage = UIImage(systemName: "questionmark.circle")
+    
     public static let identifier = "NewsCell"
+    
     private let imageViewHeight: CGFloat = 100
     private let padding: CGFloat = 10
     private let smallPadding: CGFloat = 3
     private let titleFontSize: CGFloat = 12
     private let labelFontSize: CGFloat = 10
+    
+    private var imageLoadTask: Task<Void, Never>?
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -28,7 +33,7 @@ class NewsCell: UICollectionViewCell {
     }
     
     private func setupImage() {
-        imageView = UIImageView(image: UIImage(systemName: "questionmark.circle")!)
+        imageView.image = placeHolderImage
         addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -90,10 +95,20 @@ class NewsCell: UICollectionViewCell {
     
     
     func configure(from dataSource: ArticleModel) {
-        imageView.loadImage(from: dataSource.imageURL)
         titleLabel.text = dataSource.title
         timeLabel.text  = dataSource.time
         descriptionLabel.text = dataSource.description
         authorLabel.text = dataSource.author
+        
+        imageLoadTask?.cancel()
+        imageLoadTask = Task {
+            try? await imageView.loadImage(from: dataSource.imageURL)
+        }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageLoadTask?.cancel()
+        imageView.image = placeHolderImage
     }
 }

@@ -2,13 +2,14 @@ import UIKit
 
 final class ArticleViewController: UIViewController {
     private var article: ArticleModel
-    private var imageView: UIImageView = UIImageView(image: UIImage(systemName: "questionmark.circle")!)
+    private var imageView = UIImageView()
     private var titleLabel = UILabel()
     private var textLabel = UILabel()
     private let imageViewHeight: CGFloat = 250
     private let padding: CGFloat = 10
     private let titleFontSize: CGFloat = 18
     private let textFontSize: CGFloat = 14
+    private let placeHolderImage = UIImage(systemName: "questionmark.circle")
     
     init(article: ArticleModel) {
         self.article = article
@@ -39,7 +40,10 @@ final class ArticleViewController: UIViewController {
     }
     
     private func setupImageView() {
-        imageView.loadImage(from: article.imageURL)
+        imageView.image = placeHolderImage
+        Task {
+            try? await imageView.loadImage(from: article.imageURL)
+        }
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.heightAnchor.constraint(equalToConstant: imageViewHeight).isActive = true
