@@ -6,18 +6,29 @@ class NewsListViewModel {
     private var page = 0
     private let isoDateFormatter = ISO8601DateFormatter()
     
+    @Published var articles = [ArticleModel]()
+    var isLoading = false
+    
     init(newsService: NewsServiceProtocol) {
         self.newsService = newsService
     }
     
+    @discardableResult
     func fetchTopHeadlines() async throws -> [ArticleModel] {
+        isLoading = true
         let topHeadlines = try await newsService.fetchTopHeadlines(page: page, pageSize: pageSize)
         page += 1
-        return populateArticleModels(from: topHeadlines)
+        
+        let articleModels = mapToArticleModels(topHeadlines)
+        
+        await MainActor.run {
+            articles.append(contentsOf: articleModels)
+        }
+        return articleModels
     }
     
-    private func populateArticleModels(from articles: [Article]) -> [ArticleModel] {
-        articles.map {
+    private func mapToArticleModels(_ articleDTOs: [ArticleDTO]) -> [ArticleModel] {
+        articleDTOs.map {
             ArticleModel(imageURL: URL(string: $0.urlToImage ?? ""),
                           title: $0.title ?? "",
                           description: $0.description ?? "",

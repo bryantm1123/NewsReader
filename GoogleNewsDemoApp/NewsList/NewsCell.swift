@@ -75,7 +75,7 @@ class NewsCell: UICollectionViewCell {
         addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: smallPadding),
+            stackView.topAnchor.constraint(equalTo: imageView.bottomAnchor),
             stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding)
@@ -94,7 +94,7 @@ class NewsCell: UICollectionViewCell {
     }()
     
     
-    func configure(from dataSource: ArticleModel) {
+    func setupContent(from dataSource: ArticleModel) {
         titleLabel.text = dataSource.title
         timeLabel.text  = dataSource.time
         descriptionLabel.text = dataSource.description

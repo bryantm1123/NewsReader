@@ -1,7 +1,7 @@
 import Foundation
 
 public protocol NewsServiceProtocol {
-    func fetchTopHeadlines(page: Int, pageSize: Int) async throws -> [Article]
+    func fetchTopHeadlines(page: Int, pageSize: Int) async throws -> [ArticleDTO]
 }
 
 final class NewsService: NewsServiceProtocol {
@@ -19,7 +19,7 @@ final class NewsService: NewsServiceProtocol {
         self.session = session
     }
     
-    func fetchTopHeadlines(page: Int, pageSize: Int) async throws -> [Article] {
+    func fetchTopHeadlines(page: Int, pageSize: Int) async throws -> [ArticleDTO] {
         let endpoint = "/v2/top-headlines"
         let queryItems = [
             URLQueryItem(name: "country", value: "us"),

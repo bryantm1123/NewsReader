@@ -1,13 +1,13 @@
 import UIKit
+import Combine
 
 final class NewsListViewController: UIViewController {
     
     private var collectionView: UICollectionView!
     private var layout: UICollectionViewFlowLayout!
-    private var data: [ArticleModel] = []
     private let widthOffset: CGFloat = 30
     private var viewModel: NewsListViewModel
-    private var isLoading = false
+    private var cancellables = Set<AnyCancellable>()
     
     init(viewModel: NewsListViewModel) {
         self.viewModel = viewModel
@@ -20,11 +20,12 @@ final class NewsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureCollectionView()
-        loadDataIntoCollectionView()
+        setupCollectionView()
+        setupViewModelBinding()
+        loadData()
     }
     
-    private func configureCollectionView() {
+    private func setupCollectionView() {
         let padding: CGFloat = 10
         layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -47,17 +48,18 @@ final class NewsListViewController: UIViewController {
         ])
     }
     
-    private func loadDataIntoCollectionView() {
-        guard !isLoading else { return }
-        isLoading = true
+    private func setupViewModelBinding() {
+        viewModel.$articles.sink { _ in} receiveValue: { [weak self] _ in
+            self?.viewModel.isLoading = false
+            self?.collectionView.reloadData()
+        }.store(in: &cancellables)
+    }
+    
+    private func loadData() {
+        guard !viewModel.isLoading else { return }
         Task {
             do {
-                let headlines = try await viewModel.fetchTopHeadlines()
-                await MainActor.run {
-                    data.append(contentsOf: headlines)
-                    self.collectionView.reloadData()
-                    isLoading = false
-                }
+                try await viewModel.fetchTopHeadlines()
             } catch {
                 print(error) // TODO: Handle error
             }
@@ -67,29 +69,29 @@ final class NewsListViewController: UIViewController {
 
 extension NewsListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        data.count
+        viewModel.articles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsCell.identifier, for: indexPath) as? NewsCell else {
             fatalError("Unable to dequeue cell with identifier: \(NewsCell.identifier)")
         }
-        cell.configure(from: data[indexPath.row])
+        cell.setupContent(from: viewModel.articles[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard !data.isEmpty else { return }
-        let lastElement = data.count - 1
-        if !isLoading && indexPath.row == lastElement {
-            loadDataIntoCollectionView()
+        guard !viewModel.articles.isEmpty else { return }
+        let lastElement = viewModel.articles.count - 1
+        if !viewModel.isLoading && indexPath.row == lastElement {
+            loadData()
         }
     }
 }
 
 extension NewsListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let article = data[indexPath.row]
+        let article = viewModel.articles[indexPath.row]
         let articleViewController = ArticleViewController(article: article)
         navigationController?.pushViewController(articleViewController, animated: true)
     }
@@ -97,7 +99,7 @@ extension NewsListViewController: UICollectionViewDelegate {
 
 extension NewsListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // Took some inspiration from here: https://stackoverflow.com/a/37152739
+        
         let orientation = UIDevice.current.orientation
         let itemWidth = collectionView.bounds.width - widthOffset
         

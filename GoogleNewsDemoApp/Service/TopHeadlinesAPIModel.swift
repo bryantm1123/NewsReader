@@ -2,10 +2,10 @@ struct TopHeadlinesAPIModel: Decodable {
     let status: String
     let code: String?
     let message: String?
-    let articles: [Article]?
+    let articles: [ArticleDTO]?
 }
 
-public struct Article: Decodable {
+public struct ArticleDTO: Decodable {
     let source: Source
     let title: String?
     let description: String?
