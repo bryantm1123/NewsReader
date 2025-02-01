@@ -5,27 +5,26 @@ import Foundation
 class NewsListViewModelTests {
     
     var newsServiceMock: NewsServiceMock?
+    var isoDateConverterMock: ISODateStringConverterProtocolMock?
     var viewModel: NewsListViewModel?
     
     init() {
         newsServiceMock = NewsServiceMock()
-        viewModel = NewsListViewModel(newsService: newsServiceMock!)
+        isoDateConverterMock = ISODateStringConverterProtocolMock()
+        viewModel = NewsListViewModel(newsService: newsServiceMock!,
+                                      dateConverter: isoDateConverterMock!)
     }
 
-    @Test func testViewModelCorrectlyPopulatesModelsFromArticles() async throws {
+    @Test func viewModelCorrectlyPopulatesModelsFromArticles() async throws {
         let models = try await viewModel?.fetchTopHeadlines()
         #expect(models?.count == 2)
         let model = models?.first
-        #expect(model?.title == "Bonial wins Apple Design Award")
-        #expect(model?.description == "Bonial wins Apple prestigious design award")
+        #expect(model?.title == "Dog wins lifetime supply of free bones")
+        #expect(model?.description == "Local dog wins lifetime supply of free bones")
         #expect(model?.imageURL == URL(string: "www.awesomeimage.com"))
-        #expect(model?.time != nil)
-        #expect(model?.content == "Today Bonial GmbH based in Berlin won Apple's most prestigious award for app design")
-        #expect(model?.author == "From: BBC News")
-        
-        // The date parser must handle fractional seconds in the article.publishedAt date/time stamp
-        let modelWithFractionalSeconds = models?[1]
-        #expect(modelWithFractionalSeconds?.time != nil)
+        #expect(model?.time == "4 hrs ago")
+        #expect(model?.content == "Today one lucky dog never has to worry about where he buried his bone, for he has won a lifetime supply from local pet store.")
+        #expect(model?.source == "From: BBC News")
     }
     
     deinit {

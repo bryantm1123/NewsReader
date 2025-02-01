@@ -19,7 +19,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = UINavigationController(rootViewController: NewsListViewController(viewModel: NewsListViewModel(newsService: NewsService())))
+        window?.rootViewController = UINavigationController(
+            rootViewController: NewsListViewController(
+                viewModel: NewsListViewModel(
+                    newsService: NewsService(),
+                    dateConverter: ISODateStringConverter(formatter: ISO8601DateFormatter())
+                )
+            )
+        )
         window?.makeKeyAndVisible()
     }
 

@@ -5,6 +5,6 @@ struct ArticleModel {
     let title: String
     let description: String
     let content: String
-    let author: String
+    let source: String
     let time: String?
 }

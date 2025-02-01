@@ -98,7 +98,7 @@ class NewsCell: UICollectionViewCell {
         titleLabel.text = dataSource.title
         timeLabel.text  = dataSource.time
         descriptionLabel.text = dataSource.description
-        authorLabel.text = dataSource.author
+        authorLabel.text = dataSource.source
         
         imageLoadTask?.cancel()
         imageLoadTask = Task {
