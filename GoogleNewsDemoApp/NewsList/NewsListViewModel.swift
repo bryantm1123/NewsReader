@@ -37,7 +37,8 @@ class NewsListViewModel {
                          content: $0.content ?? "",
                          source: "From: \($0.source.name)",
                          time: dateConverter.convert(isoDateString: $0.publishedAt ?? "",
-                                                     toTimeFrom: Date.now))
+                                                     toTimeFrom: Date.now)
+            )
         }
     }
 }

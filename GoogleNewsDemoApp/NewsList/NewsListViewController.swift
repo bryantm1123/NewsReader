@@ -61,7 +61,11 @@ final class NewsListViewController: UIViewController {
             do {
                 try await viewModel.fetchTopHeadlines()
             } catch {
-                print(error) // TODO: Handle error
+                await MainActor.run {
+                    presentRetryableErrorDialog { [weak self] in
+                        self?.loadData()
+                    }
+                }
             }
         }
     }
