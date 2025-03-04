@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = UINavigationController(
             rootViewController: NewsListViewController(
                 viewModel: NewsListViewModel(
-                    newsService: NewsService(),
+                    newsService: TopHeadlinesService(),
                     dateConverter: ISODateStringConverter(formatter: ISO8601DateFormatter())
                 )
             )

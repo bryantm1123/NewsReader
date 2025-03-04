@@ -1,7 +1,7 @@
 import Foundation
 
 class NewsListViewModel {
-    private var newsService: NewsServiceProtocol
+    private var newsService: TopHeadlinesServiceProtocol
     private let dateConverter: ISODateStringConverterProtocol
     private let pageSize = 21
     private var page = 0
@@ -9,7 +9,7 @@ class NewsListViewModel {
     @Published var articles = [ArticleModel]()
     var isLoading = false
     
-    init(newsService: NewsServiceProtocol,
+    init(newsService: TopHeadlinesServiceProtocol,
          dateConverter: ISODateStringConverterProtocol) {
         self.newsService = newsService
         self.dateConverter = dateConverter

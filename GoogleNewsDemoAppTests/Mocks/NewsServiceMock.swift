@@ -2,7 +2,7 @@ import Foundation
 import Testing
 @testable import GoogleNewsDemoApp
 
-struct NewsServiceMock: NewsServiceProtocol {
+struct NewsServiceMock: TopHeadlinesServiceProtocol {
     func fetchTopHeadlines(page: Int, pageSize: Int) async throws -> [GoogleNewsDemoApp.ArticleDTO] {
         [
             ArticleDTO(source: Source(name: "BBC News"),
