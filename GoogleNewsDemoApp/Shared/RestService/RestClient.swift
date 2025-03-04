@@ -1,20 +1,23 @@
 import Foundation
 
-typealias RestClientResponse = (Data, URLResponse)
+public typealias RestClientResponse = (Data, URLResponse)
 
-protocol RestClientProtocol {
+public protocol RestClientProtocol {
     func execute<R: RestRequesting>(request: R) async throws -> RestClientResponse
 }
 
-final class RestClient: RestClientProtocol {
+public final class RestClient: RestClientProtocol {
     
-    private var session: URLSession // TODO: Make a wrapper 
+    private var session: RestURLSessionProtocol
     
-    init(session: URLSession = URLSession.shared) {
+    public init(session: RestURLSessionProtocol = URLSession.shared) {
         self.session = session
     }
     
-    func execute<R: RestRequesting>(request: R) async throws -> RestClientResponse {
+    /// Executes a request asynchronously.
+    /// - Parameter request: A request conforming to `RestRequesting` for which to load data.
+    /// - Returns: type `RestClientResponse` which is a tuple of type `Data` and `URLResponse`.
+    public func execute<R: RestRequesting>(request: R) async throws -> RestClientResponse {
         switch request.method {
         case .GET:
             return try await get(request: request)
@@ -26,7 +29,7 @@ final class RestClient: RestClientProtocol {
         request.headers.forEach { (key, value) in
             urlRequest.setValue(value, forHTTPHeaderField: key)
         }
-        
-        return try await session.data(for: urlRequest)
+
+        return try await session.data(for: urlRequest, delegate: nil)
     }
 }
