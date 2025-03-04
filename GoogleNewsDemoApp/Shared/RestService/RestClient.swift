@@ -1,12 +1,12 @@
 import Foundation
 
-typealias RESTClientResponse = (Data, URLResponse)
+typealias RestClientResponse = (Data, URLResponse)
 
-protocol RESTClientProtocol {
-    func execute<R: RESTRequest>(request: R) async throws -> RESTClientResponse
+protocol RestClientProtocol {
+    func execute<R: RestRequesting>(request: R) async throws -> RestClientResponse
 }
 
-final class RESTClient: RESTClientProtocol {
+final class RestClient: RestClientProtocol {
     
     private var session: URLSession // TODO: Make a wrapper 
     
@@ -14,14 +14,14 @@ final class RESTClient: RESTClientProtocol {
         self.session = session
     }
     
-    func execute<R: RESTRequest>(request: R) async throws -> RESTClientResponse {
+    func execute<R: RestRequesting>(request: R) async throws -> RestClientResponse {
         switch request.method {
         case .GET:
             return try await get(request: request)
         }
     }
     
-    private func get<R: RESTRequest>(request: R) async throws -> RESTClientResponse {
+    private func get<R: RestRequesting>(request: R) async throws -> RestClientResponse {
         var urlRequest = URLRequest(url: request.url, timeoutInterval: request.timeoutInterval)
         request.headers.forEach { (key, value) in
             urlRequest.setValue(value, forHTTPHeaderField: key)

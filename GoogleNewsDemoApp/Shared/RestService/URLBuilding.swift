@@ -1,11 +1,11 @@
 import Foundation
 
-protocol URLBuilding {
+public protocol URLBuilding {
     var baseURL: String { get }
     var endpoint: EndpointProtocol { get }
 }
 
-extension URLBuilding {
+public extension URLBuilding {
     var url: URL? {
         var urlComponents = URLComponents(string: baseURL + endpoint.path)
         urlComponents?.queryItems = endpoint.urlQueryItems

@@ -3,7 +3,6 @@ import Foundation
 class NewsListViewModel {
     private var newsService: TopHeadlinesServiceProtocol
     private let dateConverter: ISODateStringConverterProtocol
-    private let pageSize = 21
     private var page = 0
     
     @Published var articles = [ArticleModel]()
@@ -18,7 +17,7 @@ class NewsListViewModel {
     @discardableResult
     func fetchTopHeadlines() async throws -> [ArticleModel] {
         isLoading = true
-        let topHeadlines = try await newsService.fetchTopHeadlines(page: page, pageSize: pageSize)
+        let topHeadlines = try await newsService.fetchTopHeadlines(page: String(page))
         page += 1
         
         let articleModels = mapToArticleModels(topHeadlines)

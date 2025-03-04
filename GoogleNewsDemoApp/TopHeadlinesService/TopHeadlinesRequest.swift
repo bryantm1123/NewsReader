@@ -1,6 +1,6 @@
 import Foundation
 
-struct TopHeadlinesRequest: RESTRequest {
+struct TopHeadlinesRequest: RestRequesting {
     let url: URL
     let method: HTTPMethod = .GET
     let headers: [String : String]

@@ -3,7 +3,7 @@ import Testing
 @testable import GoogleNewsDemoApp
 
 struct NewsServiceMock: TopHeadlinesServiceProtocol {
-    func fetchTopHeadlines(page: Int, pageSize: Int) async throws -> [GoogleNewsDemoApp.ArticleDTO] {
+    func fetchTopHeadlines(page: String) async throws -> [GoogleNewsDemoApp.ArticleDTO] {
         [
             ArticleDTO(source: Source(name: "BBC News"),
                     title: "Dog wins lifetime supply of free bones",

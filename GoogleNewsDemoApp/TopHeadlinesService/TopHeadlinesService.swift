@@ -8,7 +8,7 @@ final class TopHeadlinesService: TopHeadlinesServiceProtocol {
     
     private var endpoint: EndpointProtocol
     private let dataHandler: any DataHandling
-    private let restClient: RESTClientProtocol
+    private let restClient: RestClientProtocol
     private let urlBuilder: URLBuilding
     
     
@@ -19,19 +19,18 @@ final class TopHeadlinesService: TopHeadlinesServiceProtocol {
     }
     
     init(
-        endpoint: EndpointProtocol,
-        dataHandler: any DataHandling,
-        restClient: RESTClientProtocol,
-        urlBuilder: URLBuilding
+        endpoint: EndpointProtocol = TopHeadlinesEndpoint(),
+        dataHandler: any DataHandling = TopHeadlinesDataHandler(),
+        restClient: RestClientProtocol = RestClient()
     ) {
         self.endpoint = endpoint
         self.dataHandler = dataHandler
         self.restClient = restClient
-        self.urlBuilder = urlBuilder
+        self.urlBuilder = TopHeadlinesURLBuilder(baseURL: BaseAPI.baseURL, endpoint: self.endpoint)
     }
     
     func fetchTopHeadlines(page: String) async throws -> [ArticleDTO] {
-        guard var endpoint = endpoint as? TopHeadlinesEndpoint else {
+        guard let endpoint = endpoint as? TopHeadlinesEndpoint else {
             throw TopHeadlinesServiceError.InvalidEndpoint
         }
         
