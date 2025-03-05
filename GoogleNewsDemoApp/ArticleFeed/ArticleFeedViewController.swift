@@ -1,15 +1,15 @@
 import UIKit
 import Combine
 
-final class NewsListViewController: UIViewController {
+final class ArticleFeedViewController: UIViewController {
     
     private var collectionView: UICollectionView!
     private var layout: UICollectionViewFlowLayout!
     private let widthOffset: CGFloat = 30
-    private var viewModel: NewsListViewModel
+    private var viewModel: ArticleFeedViewModel
     private var cancellables = Set<AnyCancellable>()
     
-    init(viewModel: NewsListViewModel) {
+    init(viewModel: ArticleFeedViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -33,7 +33,7 @@ final class NewsListViewController: UIViewController {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(NewsCell.self, forCellWithReuseIdentifier: NewsCell.identifier)
+        collectionView.register(ArticleCell.self, forCellWithReuseIdentifier: ArticleCell.identifier)
         addCollectionViewContraints()
     }
     
@@ -71,14 +71,14 @@ final class NewsListViewController: UIViewController {
     }
 }
 
-extension NewsListViewController: UICollectionViewDataSource {
+extension ArticleFeedViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.articles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsCell.identifier, for: indexPath) as? NewsCell else {
-            fatalError("Unable to dequeue cell with identifier: \(NewsCell.identifier)")
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ArticleCell.identifier, for: indexPath) as? ArticleCell else {
+            fatalError("Unable to dequeue cell with identifier: \(ArticleCell.identifier)")
         }
         cell.setupContent(from: viewModel.articles[indexPath.row])
         return cell
@@ -93,15 +93,15 @@ extension NewsListViewController: UICollectionViewDataSource {
     }
 }
 
-extension NewsListViewController: UICollectionViewDelegate {
+extension ArticleFeedViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let article = viewModel.articles[indexPath.row]
-        let articleViewController = ArticleViewController(article: article)
+        let articleViewController = ArticleReaderViewController(article: article)
         navigationController?.pushViewController(articleViewController, animated: true)
     }
 }
 
-extension NewsListViewController: UICollectionViewDelegateFlowLayout {
+extension ArticleFeedViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let orientation = UIDevice.current.orientation

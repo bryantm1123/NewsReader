@@ -6,12 +6,12 @@ class NewsListViewModelTests {
     
     var newsServiceMock: NewsServiceMock?
     var isoDateConverterMock: ISODateStringConverterProtocolMock?
-    var viewModel: NewsListViewModel?
+    var viewModel: ArticleFeedViewModel?
     
     init() {
         newsServiceMock = NewsServiceMock()
         isoDateConverterMock = ISODateStringConverterProtocolMock()
-        viewModel = NewsListViewModel(newsService: newsServiceMock!,
+        viewModel = ArticleFeedViewModel(newsService: newsServiceMock!,
                                       dateConverter: isoDateConverterMock!)
     }
 

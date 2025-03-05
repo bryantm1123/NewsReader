@@ -1,7 +1,7 @@
 import UIKit
 
-final class ArticleViewController: UIViewController {
-    private var article: ArticleModel
+final class ArticleReaderViewController: UIViewController {
+    private var article: Article
     private var imageView = UIImageView()
     private var titleLabel = UILabel()
     private var textLabel = UILabel()
@@ -11,7 +11,7 @@ final class ArticleViewController: UIViewController {
     private let textFontSize: CGFloat = 14
     private let placeHolderImage = UIImage(systemName: "questionmark.circle")
     
-    init(article: ArticleModel) {
+    init(article: Article) {
         self.article = article
         super.init(nibName: nil, bundle: nil)
     }

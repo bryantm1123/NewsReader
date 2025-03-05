@@ -1,7 +1,7 @@
 import Foundation
 
 public protocol TopHeadlinesServiceProtocol {
-    func fetchTopHeadlines(page: String) async throws -> [ArticleDTO]
+    func fetchTopHeadlines(page: String) async throws -> [ArticleResponse]
 }
 
 final class TopHeadlinesService: TopHeadlinesServiceProtocol {
@@ -26,10 +26,13 @@ final class TopHeadlinesService: TopHeadlinesServiceProtocol {
         self.endpoint = endpoint
         self.dataHandler = dataHandler
         self.restClient = restClient
-        self.urlBuilder = TopHeadlinesURLBuilder(baseURL: BaseAPI.baseURL, endpoint: self.endpoint)
+        self.urlBuilder = TopHeadlinesURLBuilder(
+            baseURL: TopHeadlinesAPI.baseURL,
+            endpoint: self.endpoint
+        )
     }
     
-    func fetchTopHeadlines(page: String) async throws -> [ArticleDTO] {
+    func fetchTopHeadlines(page: String) async throws -> [ArticleResponse] {
         guard let endpoint = endpoint as? TopHeadlinesEndpoint else {
             throw TopHeadlinesServiceError.InvalidEndpoint
         }
@@ -41,13 +44,13 @@ final class TopHeadlinesService: TopHeadlinesServiceProtocol {
         let request = TopHeadlinesRequest(
             url: url,
             headers: [
-                BaseAPI.HeaderKeys.xAPIKey: BaseAPI.HeaderValues.apiKey
+                TopHeadlinesAPI.HeaderKeys.xAPIKey: TopHeadlinesAPI.HeaderValues.apiKey
             ]
         )
         
         let (data, _) = try await restClient.execute(request: request)
         
-        guard let articles = try dataHandler.handle(data: data) as? [ArticleDTO] else {
+        guard let articles = try dataHandler.handle(data: data) as? [ArticleResponse] else {
             throw TopHeadlinesServiceError.DataError
         }
         

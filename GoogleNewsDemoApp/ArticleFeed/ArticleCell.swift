@@ -1,6 +1,6 @@
 import UIKit
 
-class NewsCell: UICollectionViewCell {
+class ArticleCell: UICollectionViewCell {
     private var imageView = UIImageView()
     private var titleLabel = UILabel()
     private var timeLabel = UILabel()
@@ -94,7 +94,7 @@ class NewsCell: UICollectionViewCell {
     }()
     
     
-    func setupContent(from dataSource: ArticleModel) {
+    func setupContent(from dataSource: Article) {
         titleLabel.text = dataSource.title
         timeLabel.text  = dataSource.time
         descriptionLabel.text = dataSource.description

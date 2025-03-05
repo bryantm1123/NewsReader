@@ -1,11 +1,11 @@
-struct TopHeadlinesAPIModel: Decodable {
+struct TopHeadlinesResponse: Decodable {
     let status: String
     let code: String?
     let message: String?
-    let articles: [ArticleDTO]?
+    let articles: [ArticleResponse]?
 }
 
-public struct ArticleDTO: Decodable {
+public struct ArticleResponse: Decodable {
     let source: Source
     let title: String?
     let description: String?

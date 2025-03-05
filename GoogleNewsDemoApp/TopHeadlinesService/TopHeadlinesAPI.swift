@@ -1,6 +1,6 @@
 import Foundation
 
-struct BaseAPI {
+struct TopHeadlinesAPI {
     static let baseURL = "https://newsapi.org"
     
     enum HeaderKeys {

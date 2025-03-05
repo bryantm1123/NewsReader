@@ -13,8 +13,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.rootViewController = UINavigationController(
-            rootViewController: NewsListViewController(
-                viewModel: NewsListViewModel(
+            rootViewController: ArticleFeedViewController(
+                viewModel: ArticleFeedViewModel(
                     newsService: TopHeadlinesService(),
                     dateConverter: ISODateStringConverter(formatter: ISO8601DateFormatter())
                 )

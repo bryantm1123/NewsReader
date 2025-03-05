@@ -1,6 +1,6 @@
 import UIKit
 
-struct ArticleModel {
+struct Article {
     let imageURL: URL?
     let title: String
     let description: String

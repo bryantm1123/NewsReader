@@ -7,14 +7,14 @@ protocol DataHandling {
 }
 
 struct TopHeadlinesDataHandler: DataHandling {
-    typealias Model = [ArticleDTO]
+    typealias Model = [ArticleResponse]
     
     enum TopHeadlinesError: Error {
         case EndpointError(String?, String?)
     }
     
-    func handle(data: Data) throws -> [ArticleDTO] {
-        let decoded = try JSONDecoder().decode(TopHeadlinesAPIModel.self, from: data)
+    func handle(data: Data) throws -> [ArticleResponse] {
+        let decoded = try JSONDecoder().decode(TopHeadlinesResponse.self, from: data)
         
         guard decoded.status == TopHeadlinesStatusCodes.ok.rawValue,
               let articles = decoded.articles else {

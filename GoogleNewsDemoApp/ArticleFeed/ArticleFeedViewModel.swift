@@ -1,11 +1,11 @@
 import Foundation
 
-class NewsListViewModel {
+class ArticleFeedViewModel {
     private var newsService: TopHeadlinesServiceProtocol
     private let dateConverter: ISODateStringConverterProtocol
     private var page = 0
     
-    @Published var articles = [ArticleModel]()
+    @Published var articles = [Article]()
     var isLoading = false
     
     init(newsService: TopHeadlinesServiceProtocol,
@@ -15,7 +15,7 @@ class NewsListViewModel {
     }
     
     @discardableResult
-    func fetchTopHeadlines() async throws -> [ArticleModel] {
+    func fetchTopHeadlines() async throws -> [Article] {
         isLoading = true
         let topHeadlines = try await newsService.fetchTopHeadlines(page: String(page))
         page += 1
@@ -28,15 +28,17 @@ class NewsListViewModel {
         return articleModels
     }
     
-    private func mapToArticleModels(_ articleDTOs: [ArticleDTO]) -> [ArticleModel] {
+    private func mapToArticleModels(_ articleDTOs: [ArticleResponse]) -> [Article] {
         articleDTOs.map {
-            ArticleModel(imageURL: URL(string: $0.urlToImage ?? ""),
-                         title: $0.title ?? "",
-                         description: $0.description ?? "",
-                         content: $0.content ?? "",
-                         source: "From: \($0.source.name)",
-                         time: dateConverter.convert(isoDateString: $0.publishedAt ?? "",
-                                                     toTimeFrom: Date.now)
+            Article(imageURL: URL(string: $0.urlToImage ?? ""),
+                    title: $0.title ?? "",
+                    description: $0.description ?? "",
+                    content: $0.content ?? "",
+                    source: "From: \($0.source.name)",
+                    time: dateConverter.convert(
+                        isoDateString: $0.publishedAt ?? "",
+                        toTimeFrom: Date.now
+                    )
             )
         }
     }
