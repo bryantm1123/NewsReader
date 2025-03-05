@@ -8,6 +8,6 @@ struct TopHeadlinesAPI {
     }
     
     enum HeaderValues {
-        static let apiKey = "2345e71eaacd4316a3609942d36b0530"
+        static let apiKey = "" // FixME: Add your API key here.
     }
 }
