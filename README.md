@@ -2,11 +2,21 @@
 A simple news reader app, currently showing top headlines from the US. The app sources articles from [https://newsapi.org/](https://newsapi.org/).
 
 ## Get Started
+### Prerequisites
 - Xcode 16.2+
 - Swift 5.4.2+
 - iOS 16.6+
 
 The app was **tested on iOS 18.1** and there are **no third-party dependencies**.
+
+### Run Locally
+Clone the project  
+```git clone https://github.com/bryantm1123/NewsReader.git```
+
+Navigate to the project directory  
+```cd path/to/project/newsreader```
+
+Open `NewsReader.pbxproj`.
 
 ## Architecture 
 From a user perspective, the app consists of a scrolling article feed, which displays a preview of the article content. Tapping an article preview loads the full article—up to API character limits.
