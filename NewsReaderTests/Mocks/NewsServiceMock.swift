@@ -1,9 +1,9 @@
 import Foundation
 import Testing
-@testable import GoogleNewsDemoApp
+@testable import NewsReader
 
 struct NewsServiceMock: TopHeadlinesServiceProtocol {
-    func fetchTopHeadlines(page: String) async throws -> [GoogleNewsDemoApp.ArticleResponse] {
+    func fetchTopHeadlines(page: String) async throws -> [ArticleResponse] {
         [
             ArticleResponse(source: Source(name: "BBC News"),
                     title: "Dog wins lifetime supply of free bones",

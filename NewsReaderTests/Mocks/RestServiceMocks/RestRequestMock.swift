@@ -1,5 +1,5 @@
 import Foundation
-import GoogleNewsDemoApp
+import NewsReader
 
 struct RestRequestMock: RestRequesting {
     let url: URL
@@ -9,7 +9,7 @@ struct RestRequestMock: RestRequesting {
 
 struct RestRequestOverridingTimeoutMock: RestRequesting {
     let url: URL
-    let method: GoogleNewsDemoApp.HTTPMethod
+    let method: HTTPMethod
     let headers: [String : String]
     let timeoutInterval: TimeInterval
 }

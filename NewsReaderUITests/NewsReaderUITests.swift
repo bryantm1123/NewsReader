@@ -1,13 +1,6 @@
-//
-//  GoogleNewsDemoAppUITests.swift
-//  GoogleNewsDemoAppUITests
-//
-//  Created by Matt Bryant on 1/23/25.
-//
-
 import XCTest
 
-final class GoogleNewsDemoAppUITests: XCTestCase {
+final class NewsReaderUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

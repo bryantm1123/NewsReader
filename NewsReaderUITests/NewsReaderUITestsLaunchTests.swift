@@ -1,13 +1,6 @@
-//
-//  GoogleNewsDemoAppUITestsLaunchTests.swift
-//  GoogleNewsDemoAppUITests
-//
-//  Created by Matt Bryant on 1/23/25.
-//
-
 import XCTest
 
-final class GoogleNewsDemoAppUITestsLaunchTests: XCTestCase {
+final class NewsReaderUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

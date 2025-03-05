@@ -30,7 +30,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		928B06932D425A7600410AD7 /* Exceptions for "GoogleNewsDemoApp" folder in "NewsReader" target */ = {
+		920596962D787CE700359E18 /* Exceptions for "NewsReader" folder in "NewsReader" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -40,22 +40,22 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		928B066D2D425A7100410AD7 /* GoogleNewsDemoApp */ = {
+		928B066D2D425A7100410AD7 /* NewsReader */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				928B06932D425A7600410AD7 /* Exceptions for "GoogleNewsDemoApp" folder in "NewsReader" target */,
+				920596962D787CE700359E18 /* Exceptions for "NewsReader" folder in "NewsReader" target */,
 			);
-			path = GoogleNewsDemoApp;
+			path = NewsReader;
 			sourceTree = "<group>";
 		};
-		928B06842D425A7600410AD7 /* GoogleNewsDemoAppTests */ = {
+		928B06842D425A7600410AD7 /* NewsReaderTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = GoogleNewsDemoAppTests;
+			path = NewsReaderTests;
 			sourceTree = "<group>";
 		};
-		928B068E2D425A7600410AD7 /* GoogleNewsDemoAppUITests */ = {
+		928B068E2D425A7600410AD7 /* NewsReaderUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = GoogleNewsDemoAppUITests;
+			path = NewsReaderUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -88,9 +88,9 @@
 		928B06622D425A7100410AD7 = {
 			isa = PBXGroup;
 			children = (
-				928B066D2D425A7100410AD7 /* GoogleNewsDemoApp */,
-				928B06842D425A7600410AD7 /* GoogleNewsDemoAppTests */,
-				928B068E2D425A7600410AD7 /* GoogleNewsDemoAppUITests */,
+				928B066D2D425A7100410AD7 /* NewsReader */,
+				928B06842D425A7600410AD7 /* NewsReaderTests */,
+				928B068E2D425A7600410AD7 /* NewsReaderUITests */,
 				928B066C2D425A7100410AD7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -121,7 +121,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				928B066D2D425A7100410AD7 /* GoogleNewsDemoApp */,
+				928B066D2D425A7100410AD7 /* NewsReader */,
 			);
 			name = NewsReader;
 			packageProductDependencies = (
@@ -144,7 +144,7 @@
 				928B06832D425A7600410AD7 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				928B06842D425A7600410AD7 /* GoogleNewsDemoAppTests */,
+				928B06842D425A7600410AD7 /* NewsReaderTests */,
 			);
 			name = NewsReaderTests;
 			packageProductDependencies = (
@@ -167,7 +167,7 @@
 				928B068D2D425A7600410AD7 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				928B068E2D425A7600410AD7 /* GoogleNewsDemoAppUITests */,
+				928B068E2D425A7600410AD7 /* NewsReaderUITests */,
 			);
 			name = NewsReaderUITests;
 			packageProductDependencies = (
@@ -291,7 +291,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BV7A9X77F6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GoogleNewsDemoApp/Info.plist;
+				INFOPLIST_FILE = NewsReader/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -302,7 +302,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.strongbeard.GoogleNewsDemoApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.strongbeard.NewsReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -323,7 +323,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BV7A9X77F6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GoogleNewsDemoApp/Info.plist;
+				INFOPLIST_FILE = NewsReader/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -334,7 +334,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.strongbeard.GoogleNewsDemoApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.strongbeard.NewsReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -473,9 +473,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BV7A9X77F6;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.strongbeard.GoogleNewsDemoAppTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.strongbeard.NewsReaderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -492,9 +492,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BV7A9X77F6;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.strongbeard.GoogleNewsDemoAppTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.strongbeard.NewsReaderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -510,8 +510,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BV7A9X77F6;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.strongbeard.GoogleNewsDemoAppUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.strongbeard.NewsReaderUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -527,8 +528,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BV7A9X77F6;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.strongbeard.GoogleNewsDemoAppUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.strongbeard.NewsReaderUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;

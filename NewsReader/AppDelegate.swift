@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  GoogleNewsDemoApp
-//
-//  Created by Matt Bryant on 1/23/25.
-//
-
 import UIKit
 
 @main

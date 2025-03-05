@@ -1,5 +1,5 @@
 import Foundation
-@testable import GoogleNewsDemoApp
+@testable import NewsReader
 
 struct ISODateStringConverterProtocolMock: ISODateStringConverterProtocol {
     func convertToDate(_ dateString: String) -> Date? {

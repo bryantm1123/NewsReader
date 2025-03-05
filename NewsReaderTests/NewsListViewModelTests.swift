@@ -1,6 +1,6 @@
 import Testing
 import Foundation
-@testable import GoogleNewsDemoApp
+@testable import NewsReader
 
 class NewsListViewModelTests {
     

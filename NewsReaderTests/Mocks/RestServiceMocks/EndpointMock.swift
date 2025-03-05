@@ -1,5 +1,5 @@
 import Foundation
-import GoogleNewsDemoApp
+import NewsReader
 
 struct EndpointMock: EndpointProtocol {
     let path: String
