@@ -6,7 +6,7 @@ A simple news reader app, currently showing top headlines from the US. The app s
 - Swift 5.4.2+
 - iOS 16.6+
 
-The app was **tested on iOS 18.2** and there are **no third-party dependencies**.
+The app was **tested on iOS 18.1** and there are **no third-party dependencies**.
 
 ## Architecture 
 From a user perspective, the app consists of a scrolling article feed, which displays a preview of the article content. Tapping an article preview loads the full article—up to API character limits.
