@@ -24,18 +24,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		928B066B2D425A7100410AD7 /* GoogleNewsDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleNewsDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		928B06812D425A7600410AD7 /* GoogleNewsDemoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoogleNewsDemoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		928B068B2D425A7600410AD7 /* GoogleNewsDemoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoogleNewsDemoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		928B066B2D425A7100410AD7 /* NewsReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		928B06812D425A7600410AD7 /* NewsReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		928B068B2D425A7600410AD7 /* NewsReaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsReaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		928B06932D425A7600410AD7 /* Exceptions for "GoogleNewsDemoApp" folder in "GoogleNewsDemoApp" target */ = {
+		928B06932D425A7600410AD7 /* Exceptions for "GoogleNewsDemoApp" folder in "NewsReader" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 928B066A2D425A7100410AD7 /* GoogleNewsDemoApp */;
+			target = 928B066A2D425A7100410AD7 /* NewsReader */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -43,7 +43,7 @@
 		928B066D2D425A7100410AD7 /* GoogleNewsDemoApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				928B06932D425A7600410AD7 /* Exceptions for "GoogleNewsDemoApp" folder in "GoogleNewsDemoApp" target */,
+				928B06932D425A7600410AD7 /* Exceptions for "GoogleNewsDemoApp" folder in "NewsReader" target */,
 			);
 			path = GoogleNewsDemoApp;
 			sourceTree = "<group>";
@@ -98,9 +98,9 @@
 		928B066C2D425A7100410AD7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				928B066B2D425A7100410AD7 /* GoogleNewsDemoApp.app */,
-				928B06812D425A7600410AD7 /* GoogleNewsDemoAppTests.xctest */,
-				928B068B2D425A7600410AD7 /* GoogleNewsDemoAppUITests.xctest */,
+				928B066B2D425A7100410AD7 /* NewsReader.app */,
+				928B06812D425A7600410AD7 /* NewsReaderTests.xctest */,
+				928B068B2D425A7600410AD7 /* NewsReaderUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,9 +108,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		928B066A2D425A7100410AD7 /* GoogleNewsDemoApp */ = {
+		928B066A2D425A7100410AD7 /* NewsReader */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 928B06942D425A7600410AD7 /* Build configuration list for PBXNativeTarget "GoogleNewsDemoApp" */;
+			buildConfigurationList = 928B06942D425A7600410AD7 /* Build configuration list for PBXNativeTarget "NewsReader" */;
 			buildPhases = (
 				928B06672D425A7100410AD7 /* Sources */,
 				928B06682D425A7100410AD7 /* Frameworks */,
@@ -123,16 +123,16 @@
 			fileSystemSynchronizedGroups = (
 				928B066D2D425A7100410AD7 /* GoogleNewsDemoApp */,
 			);
-			name = GoogleNewsDemoApp;
+			name = NewsReader;
 			packageProductDependencies = (
 			);
 			productName = GoogleNewsDemoApp;
-			productReference = 928B066B2D425A7100410AD7 /* GoogleNewsDemoApp.app */;
+			productReference = 928B066B2D425A7100410AD7 /* NewsReader.app */;
 			productType = "com.apple.product-type.application";
 		};
-		928B06802D425A7600410AD7 /* GoogleNewsDemoAppTests */ = {
+		928B06802D425A7600410AD7 /* NewsReaderTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 928B06992D425A7600410AD7 /* Build configuration list for PBXNativeTarget "GoogleNewsDemoAppTests" */;
+			buildConfigurationList = 928B06992D425A7600410AD7 /* Build configuration list for PBXNativeTarget "NewsReaderTests" */;
 			buildPhases = (
 				928B067D2D425A7600410AD7 /* Sources */,
 				928B067E2D425A7600410AD7 /* Frameworks */,
@@ -146,16 +146,16 @@
 			fileSystemSynchronizedGroups = (
 				928B06842D425A7600410AD7 /* GoogleNewsDemoAppTests */,
 			);
-			name = GoogleNewsDemoAppTests;
+			name = NewsReaderTests;
 			packageProductDependencies = (
 			);
 			productName = GoogleNewsDemoAppTests;
-			productReference = 928B06812D425A7600410AD7 /* GoogleNewsDemoAppTests.xctest */;
+			productReference = 928B06812D425A7600410AD7 /* NewsReaderTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		928B068A2D425A7600410AD7 /* GoogleNewsDemoAppUITests */ = {
+		928B068A2D425A7600410AD7 /* NewsReaderUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 928B069C2D425A7600410AD7 /* Build configuration list for PBXNativeTarget "GoogleNewsDemoAppUITests" */;
+			buildConfigurationList = 928B069C2D425A7600410AD7 /* Build configuration list for PBXNativeTarget "NewsReaderUITests" */;
 			buildPhases = (
 				928B06872D425A7600410AD7 /* Sources */,
 				928B06882D425A7600410AD7 /* Frameworks */,
@@ -169,11 +169,11 @@
 			fileSystemSynchronizedGroups = (
 				928B068E2D425A7600410AD7 /* GoogleNewsDemoAppUITests */,
 			);
-			name = GoogleNewsDemoAppUITests;
+			name = NewsReaderUITests;
 			packageProductDependencies = (
 			);
 			productName = GoogleNewsDemoAppUITests;
-			productReference = 928B068B2D425A7600410AD7 /* GoogleNewsDemoAppUITests.xctest */;
+			productReference = 928B068B2D425A7600410AD7 /* NewsReaderUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -199,7 +199,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 928B06662D425A7100410AD7 /* Build configuration list for PBXProject "GoogleNewsDemoApp" */;
+			buildConfigurationList = 928B06662D425A7100410AD7 /* Build configuration list for PBXProject "NewsReader" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -213,9 +213,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				928B066A2D425A7100410AD7 /* GoogleNewsDemoApp */,
-				928B06802D425A7600410AD7 /* GoogleNewsDemoAppTests */,
-				928B068A2D425A7600410AD7 /* GoogleNewsDemoAppUITests */,
+				928B066A2D425A7100410AD7 /* NewsReader */,
+				928B06802D425A7600410AD7 /* NewsReaderTests */,
+				928B068A2D425A7600410AD7 /* NewsReaderUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -271,12 +271,12 @@
 /* Begin PBXTargetDependency section */
 		928B06832D425A7600410AD7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 928B066A2D425A7100410AD7 /* GoogleNewsDemoApp */;
+			target = 928B066A2D425A7100410AD7 /* NewsReader */;
 			targetProxy = 928B06822D425A7600410AD7 /* PBXContainerItemProxy */;
 		};
 		928B068D2D425A7600410AD7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 928B066A2D425A7100410AD7 /* GoogleNewsDemoApp */;
+			target = 928B066A2D425A7100410AD7 /* NewsReader */;
 			targetProxy = 928B068C2D425A7600410AD7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -480,7 +480,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoogleNewsDemoApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GoogleNewsDemoApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NewsReader.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NewsReader";
 			};
 			name = Debug;
 		};
@@ -499,7 +499,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GoogleNewsDemoApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GoogleNewsDemoApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NewsReader.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NewsReader";
 			};
 			name = Release;
 		};
@@ -540,7 +540,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		928B06662D425A7100410AD7 /* Build configuration list for PBXProject "GoogleNewsDemoApp" */ = {
+		928B06662D425A7100410AD7 /* Build configuration list for PBXProject "NewsReader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				928B06972D425A7600410AD7 /* Debug */,
@@ -549,7 +549,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		928B06942D425A7600410AD7 /* Build configuration list for PBXNativeTarget "GoogleNewsDemoApp" */ = {
+		928B06942D425A7600410AD7 /* Build configuration list for PBXNativeTarget "NewsReader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				928B06952D425A7600410AD7 /* Debug */,
@@ -558,7 +558,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		928B06992D425A7600410AD7 /* Build configuration list for PBXNativeTarget "GoogleNewsDemoAppTests" */ = {
+		928B06992D425A7600410AD7 /* Build configuration list for PBXNativeTarget "NewsReaderTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				928B069A2D425A7600410AD7 /* Debug */,
@@ -567,7 +567,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		928B069C2D425A7600410AD7 /* Build configuration list for PBXNativeTarget "GoogleNewsDemoAppUITests" */ = {
+		928B069C2D425A7600410AD7 /* Build configuration list for PBXNativeTarget "NewsReaderUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				928B069D2D425A7600410AD7 /* Debug */,
