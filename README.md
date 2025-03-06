@@ -27,14 +27,4 @@ The app currently utilizes UIKit to provide the user interface. The article feed
 
 The article reader is a simple view controller that accepts the article data and displays it in a layout similar to the article preview.
 
-## Roadmap
-### Webview for full article
-Explore loading the full article in a web view to provide a better user experience. The API limits the article text, making the full article unreadable. However it does provide a url to the article source. The app could load this url into a web view to provide access to the full article content.
-
-### Filters
-The API supports multiple query parameters and search filters, to include topics, sources, and categories. The app could provide more options for the user to narrow the scope of the news article feed based on interests.
-
-### Swift UI
-The app could replace UIKit with SwiftUI to improve the user interface. 
-
  
