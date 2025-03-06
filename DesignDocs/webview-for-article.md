@@ -7,9 +7,9 @@ Author: Matthew Bryant
 This proposal seeks to clarify the design and high-level implementation of showing the full news article content by using a web view. In this context, an article's **content** refers to the text of the article.
 
 ## Background
-The app data source is powered by [NewsAPI.org](https://newsapi.org/). According to their FAQs, the full article content is not available via API. Instead, the content text is limited by character count, thus making it impossible in the current implementation for a user to read the full article text.
+The app data source is powered by [NewsAPI.org](https://newsapi.org/). According to their FAQs, the full article content is not available via API. Instead, the content text is limited by character count, thus making it impossible for a user to read the full article text.
 
-In the current implementation, when tapping an article preview in the article feed, the app loads a more full version of the article content on screen. The article content consists of:
+In the current implementation, when tapping an article preview in the feed, the app loads a more full version of the content on screen. The content consists of:
 - image — an image associated with the article
 - title — the title of the article
 - content — the article text, limited by character count, with remaining characters displayed at the end of the truncated text. For example, `...[+4152 chars]`
@@ -20,7 +20,10 @@ In the current implementation, when tapping an article preview in the article fe
 Enable the user to view the full content of the article where possible.
 
 ## Non-goals
-Do not attempt to bypass article host paywalls. Do not attempt to pass cookies or introduce any cross-site tracking. Do not attempt to track a user's activity on the host site.
+Do not attempt to
+- bypass article host paywalls
+- pass cookies or introduce any cross-site tracking 
+- track a user's activity on the host site
 
 ## Proposed solution
 The API returns a URL that links to the host of the article source. For example, in the response object for an article from BBC News, the URL property might contain `https://www.bbc.com/news/article-title-in-url-form`. In cases where this URL is available, the article reader screen displays a button or link to view the full article content. 
