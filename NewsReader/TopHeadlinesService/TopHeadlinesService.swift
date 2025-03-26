@@ -41,12 +41,7 @@ final class TopHeadlinesService: TopHeadlinesServiceProtocol {
         
         guard let url = urlBuilder.url else { throw TopHeadlinesServiceError.InvalidURL }
         
-        let request = TopHeadlinesRequest(
-            url: url,
-            headers: [
-                TopHeadlinesAPI.HeaderKeys.xAPIKey: TopHeadlinesAPI.HeaderValues.apiKey
-            ]
-        )
+        let request = TopHeadlinesRequestBuilder.buildRequest(url: url)
         
         let (data, _) = try await restClient.execute(request: request)
         
