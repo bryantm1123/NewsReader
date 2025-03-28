@@ -18,7 +18,7 @@ Navigate to the project directory
 
 Open `NewsReader.pbxproj`.
 
-Register for an API key at [https://newsapi.org/](https://newsapi.org/). Once you have a key, paste it between the double quotes `""` in line 11 of [TopHeadlinesAPI.swift](https://github.com/bryantm1123/NewsReader/blob/main/NewsReader/TopHeadlinesService/TopHeadlinesAPI.swift#L11).
+Register for an API key at [https://newsapi.org/](https://newsapi.org/). The app expects the api key as an environment variable named `API_KEY`.
 
 ## Architecture 
 From a user perspective, the app consists of a scrolling article feed, which displays a preview of the article content. Tapping an article preview loads the full article—up to API character limits.

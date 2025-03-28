@@ -8,6 +8,8 @@ struct TopHeadlinesAPI {
     }
     
     enum HeaderValues {
-        static let apiKey = "" // FixME: Add your API key here.
+        static var apiKey: String? {
+            ProcessInfo.processInfo.environment["API_KEY"]
+        }
     }
 }

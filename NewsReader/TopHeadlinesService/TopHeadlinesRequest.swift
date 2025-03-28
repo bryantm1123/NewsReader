@@ -7,14 +7,18 @@ struct TopHeadlinesRequest: RestRequesting {
 }
 
 struct TopHeadlinesRequestBuilder {
-    static func buildRequest(url: URL) -> TopHeadlinesRequest {
-        assert(!TopHeadlinesAPI.HeaderValues.apiKey.isEmpty, "API Key value is empty.")
+    static func buildRequest(url: URL) throws -> TopHeadlinesRequest {
+        guard let apiKey = TopHeadlinesAPI.HeaderValues.apiKey else {
+            throw TopHeadlinesRequestError.missingAPIKey
+        }
         
         return TopHeadlinesRequest(
             url: url,
-            headers: [
-                TopHeadlinesAPI.HeaderKeys.xAPIKey: TopHeadlinesAPI.HeaderValues.apiKey
-            ]
+            headers: [TopHeadlinesAPI.HeaderKeys.xAPIKey : apiKey]
         )
     }
+}
+
+enum TopHeadlinesRequestError: Error {
+    case missingAPIKey
 }
