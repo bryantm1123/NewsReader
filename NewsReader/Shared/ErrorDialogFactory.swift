@@ -1,17 +1,31 @@
 import UIKit
 
 struct ErrorDialogFactory {
-    static func retryableErrorDialog(with action: @escaping () -> Void) -> UIAlertController {
-        let retryAction = UIAlertAction(title: ErrorMessaging.RetryableDialog.tryAgain, style: .default) { _ in
+    static func makeRetryableErrorDialog(with action: @escaping () -> Void) -> UIAlertController {
+        let alert = UIAlertController(title: ErrorMessaging.error,
+                                      message: ErrorMessaging.RetryableDialog.message,
+                                      preferredStyle: .alert
+        )
+        
+        let retryAction = UIAlertAction(title: ErrorMessaging.tryAgain, style: .default) { _ in
             action()
         }
-        let cancelAction = UIAlertAction(title: ErrorMessaging.RetryableDialog.cancel, style: .cancel)
+        let cancelAction = UIAlertAction(title: ErrorMessaging.cancel, style: .cancel)
         
-        let alert = UIAlertController(title: ErrorMessaging.RetryableDialog.title,
-                                      message: ErrorMessaging.RetryableDialog.message,
-                                      preferredStyle: .alert)
         alert.addAction(retryAction)
         alert.addAction(cancelAction)
+        return alert
+    }
+    
+    static func makeWebViewLoadFailed(with action: @escaping () -> Void) -> UIAlertController {
+        let alert = UIAlertController(title: ErrorMessaging.error,
+                                      message: ErrorMessaging.WebViewLoadFailed.message,
+                                      preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(title: ErrorMessaging.ok, style: .default) { _ in
+            action()
+        }
+        alert.addAction(okAction)
         return alert
     }
 }

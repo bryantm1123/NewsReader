@@ -1,15 +1,21 @@
 import Foundation
 
 class ArticleFeedViewModel {
+    // dependencies
     private var newsService: TopHeadlinesServiceProtocol
     private let dateConverter: ISODateStringConverterProtocol
-    private var page = 0
     
+    // data source
     @Published var articles = [Article]()
+    
+    // pagination variables
+    private var page = 0
     var isLoading = false
     
-    init(newsService: TopHeadlinesServiceProtocol,
-         dateConverter: ISODateStringConverterProtocol) {
+    init(
+        newsService: TopHeadlinesServiceProtocol,
+        dateConverter: ISODateStringConverterProtocol
+    ) {
         self.newsService = newsService
         self.dateConverter = dateConverter
     }
@@ -30,15 +36,15 @@ class ArticleFeedViewModel {
     
     private func mapToArticleModels(_ articleDTOs: [ArticleResponse]) -> [Article] {
         articleDTOs.map {
-            Article(imageURL: URL(string: $0.urlToImage ?? ""),
-                    title: $0.title ?? "",
-                    description: $0.description ?? "",
-                    content: $0.content ?? "",
+            Article(imageURL: $0.urlToImage,
+                    title: $0.title,
+                    description: $0.description,
                     source: "From: \($0.source.name)",
                     time: dateConverter.convert(
-                        isoDateString: $0.publishedAt ?? "",
+                        isoDateString: $0.publishedAt,
                         toTimeFrom: Date.now
-                    )
+                    ),
+                    url: $0.url
             )
         }
     }

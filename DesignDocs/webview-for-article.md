@@ -41,3 +41,6 @@ It might be a better user experience to simply load the article into a web view 
 With the proposed solution, the fallback case is covered by simply not showing the link. It's possible that the above approach could be backed up by simply showing the reader screen.
 
 Additionally, loading the article URL in a webview might not acheive the stated goal. Paywalls, and cookie tracking may either prevent or deter a user from reading the article on a host's site. Therefore, the goal should stay tightly focused on **enabling** the user to view the full article content, rather than **ensuring** that they view it.
+
+## Decision
+After POC exploration, the app will attempt to load the URL directly into the webview when the user taps the article preview. If the URL cannot be loaded, the app will display an error message and with an OK button to navigate back to the feed screen.

@@ -6,7 +6,7 @@ struct ISODateStringConverterProtocolMock: ISODateStringConverterProtocol {
         return Date.now
     }
 
-    func convert(isoDateString: String, toTimeFrom date: Date) -> String? {
+    func convert(isoDateString: String?, toTimeFrom date: Date) -> String? {
         "4 hrs ago"
     }
 }

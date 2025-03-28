@@ -6,7 +6,7 @@ class ArticleCell: UICollectionViewCell {
     private var timeLabel = UILabel()
     private var descriptionLabel = UILabel()
     private var authorLabel = UILabel()
-    private let placeHolderImage = UIImage(systemName: "questionmark.circle")
+    private let placeHolderImage = UIImage(systemName: "arrow.trianglehead.2.clockwise.rotate.90.icloud.fill")
     
     public static let identifier = "NewsCell"
     
@@ -100,10 +100,14 @@ class ArticleCell: UICollectionViewCell {
         descriptionLabel.text = dataSource.description
         authorLabel.text = dataSource.source
         
-        imageLoadTask?.cancel()
-        imageLoadTask = Task {
-            try? await imageView.loadImage(from: dataSource.imageURL)
+        if let imageURLString = dataSource.imageURL,
+           let imageURL = URL(string: imageURLString) {
+            imageLoadTask?.cancel()
+            imageLoadTask = Task {
+                try? await imageView.loadImage(from: imageURL)
+            }
         }
+        
     }
     
     override func prepareForReuse() {

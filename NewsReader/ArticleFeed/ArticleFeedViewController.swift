@@ -96,8 +96,8 @@ extension ArticleFeedViewController: UICollectionViewDataSource {
 extension ArticleFeedViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let article = viewModel.articles[indexPath.row]
-        let articleViewController = ArticleReaderViewController(article: article)
-        navigationController?.pushViewController(articleViewController, animated: true)
+        let webViewController = WebViewController(urlString: article.url)
+        navigationController?.pushViewController(webViewController, animated: true)
     }
 }
 
