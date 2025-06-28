@@ -1,10 +1,11 @@
-import UIKit
+import Foundation
 
-struct Article {
+struct Article: Identifiable {
+    let id = UUID()
     let imageURL: String?
-    let title: String?
+    let title: String
     let description: String?
-    let source: String?
-    let time: String?
-    let url: String?
+    let source: String
+    let time: String
+    let url: String
 }

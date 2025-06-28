@@ -1,4 +1,5 @@
 import UIKit
+import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -12,14 +13,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = UINavigationController(
-            rootViewController: ArticleFeedViewController(
-                viewModel: ArticleFeedViewModel(
-                    newsService: TopHeadlinesService(),
-                    dateConverter: ISODateStringConverter(formatter: ISO8601DateFormatter())
-                )
-            )
+        let viewModel = ArticleFeedViewModel(
+            newsService: TopHeadlinesService(),
+            dateConverter: ISODateStringConverter(formatter: ISO8601DateFormatter())
         )
+        let rootView = ArticleFeedView(viewModel: viewModel)
+        window?.rootViewController = UIHostingController(rootView: rootView)
         window?.makeKeyAndVisible()
     }
 
